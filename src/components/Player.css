@@ -1,0 +1,17 @@
+span {
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.highlight {
+    background-color: #667292;
+    padding: 5px 20px;
+    color: white;
+}
+
+.description {
+    font-size: 16px;
+}
