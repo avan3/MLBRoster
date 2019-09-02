@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 class App extends React.Component {
     render() {
         return (
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <div>
                     <Route exact path="/" component={Home} />  
                     <Route exact path="/team" component={Team} />

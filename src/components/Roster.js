@@ -31,6 +31,13 @@ class Roster extends React.Component {
         });
     };
 
+    componentDidUpdate() {
+        window.onpopstate = (e) => {
+            this.props.changeActive('teams');
+            this.props.history.push('/team');
+        };
+    };
+
     render() {
         const players = this.props.roster.map(({ person }) => {
             return (

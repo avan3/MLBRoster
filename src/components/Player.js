@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Image, Segment, List, Item, Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { listPlayer } from '../actions';
+import { listPlayer, changeActive } from '../actions';
 import Stats from './Stats';
 import CareerStats from './CareerStats';
 import MLBMenu from './Menu';
@@ -41,6 +41,13 @@ class Player extends React.Component {
         .catch((err) => {
             console.log(err);
         });
+    };
+
+    componentDidUpdate() {
+        window.onpopstate = (e) => {
+            this.props.changeActive('roster');
+            this.props.history.push('/roster');
+        };
     };
 
     aggregateData = (splits) => {
@@ -166,5 +173,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    listPlayer: listPlayer
+    listPlayer: listPlayer,
+    changeActive: changeActive
 }) (Player);

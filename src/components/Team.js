@@ -29,6 +29,13 @@ class Team extends React.Component {
         })
     };
 
+    componentDidUpdate() {
+        window.onpopstate = (e) => {
+            this.props.changeActive('home');
+            this.props.history.push('/');
+        };
+    };
+
     render() {
         const team = this.props.teams.map((item) => {
             return (
