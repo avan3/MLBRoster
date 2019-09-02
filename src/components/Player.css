@@ -6,6 +6,10 @@ h1 {
     font-size: 40px;
 }
 
+.ui.horizontal.list {
+    margin-bottom: 20px;
+}
+
 .highlight {
     background-color: #667292;
     padding: 5px 20px;
