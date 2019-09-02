@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import { listTeams } from '../actions';
+import { listTeams, changeActive } from '../actions';
 import { connect } from 'react-redux';
 import { Card, Image } from 'semantic-ui-react';
 import { withRouter } from 'react-router';
+import MLBMenu from './Menu';
 
 class Team extends React.Component {
     getTeams = () => {
@@ -18,6 +19,7 @@ class Team extends React.Component {
 
     goToRosterDetails = (teamId) => {
         localStorage.setItem("selectedTeam", teamId);
+        this.props.changeActive('roster');
         this.props.history.push('/roster');
     };
 
@@ -55,6 +57,7 @@ class Team extends React.Component {
         });
         return (
             <div>
+                <MLBMenu/>
                 <Card.Group centered>
                 {team} 
                 </Card.Group>
@@ -69,5 +72,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    listTeams: listTeams
+    listTeams: listTeams,
+    changeActive: changeActive
 }) (withRouter(Team));

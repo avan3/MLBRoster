@@ -18,3 +18,10 @@ export const listPlayer = (player) => {
         payload: player
     };
 };
+
+export const changeActive = (item) => {
+    return {
+        type: "CHANGE_ACTIVE",
+        payload: item
+    };
+};
