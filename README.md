@@ -5,3 +5,7 @@ To run locally:
 - clone the repository 
 - npm install
 - npm start
+
+---
+Demo: 
+https://avan3.github.io/MLBRoster/
