@@ -142,7 +142,7 @@ class CareerStats extends React.Component {
 
     render() {
         return (
-            <Segment>
+            <Segment style={{overflowX: "scroll"}}>
                 <h2 style={{padding: "5px"}}>Career Stats</h2>
                 <Table celled unstackable>
                     <Table.Header>
