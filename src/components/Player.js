@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { listPlayer } from '../actions';
 import Stats from './Stats';
 import CareerStats from './CareerStats';
-import MLBMenu from './Menu';
 
 import './Player.css';
 
@@ -114,49 +113,46 @@ class Player extends React.Component {
         const { stat, recentYear, aggStatInfo, position } = this.state;
         const { player } = this.props;
         return (
-            <div>
-                <MLBMenu/>
-                <Segment style={{height: "100%"}}>
-                    <Grid>
-                        <Grid.Column width={11}>
-                            <div>
-                                <List horizontal>
-                                    <List.Item><h1 className="highlight">{player.primaryNumber}</h1></List.Item>
-                                    <List.Item><h1>{player.fullName}</h1></List.Item>
-                                </List>
-                            </div>
-                            <Image 
-                                src={`https://securea.mlb.com/mlb/images/players/head_shot/${player.id}.jpg`}
-                                alt={player.fullName}
-                                bordered
-                                style={{
-                                    float:"left",
-                                    marginRight: "30px",
-                                    marginBottom: "30px"
-                                }}
-                            /> 
-                            <Item>
-                                <Item.Content>
-                                    <Item.Header as="h2">{player.firstName} {player.middleName} {player.lastName}</Item.Header>
-                                    <Item.Description><strong>Nickname: </strong>{player.nickName}</Item.Description>
-                                    <Item.Description><strong>Born: </strong>{player.birthDate}</Item.Description>
-                                    <Item.Description><strong>Birth Location: </strong>{player.birthCity} {player.birthStateProvince}, {player.birthCountry}</Item.Description>
-                                    <Item.Description><strong>Draft Year: </strong>{player.draftYear} </Item.Description>
-                                    <Item.Description><strong>Debut: </strong>{player.mlbDebutDate} </Item.Description>
+            <Segment style={{height: "100%"}}>
+                <Grid>
+                    <Grid.Column width={11}>
+                        <div>
+                            <List horizontal>
+                                <List.Item><h1 className="highlight">{player.primaryNumber}</h1></List.Item>
+                                <List.Item><h1>{player.fullName}</h1></List.Item>
+                            </List>
+                        </div>
+                        <Image 
+                            src={`https://securea.mlb.com/mlb/images/players/head_shot/${player.id}.jpg`}
+                            alt={player.fullName}
+                            bordered
+                            style={{
+                                float:"left",
+                                marginRight: "30px",
+                                marginBottom: "30px"
+                            }}
+                        /> 
+                        <Item>
+                            <Item.Content>
+                                <Item.Header as="h2">{player.firstName} {player.middleName} {player.lastName}</Item.Header>
+                                <Item.Description><strong>Nickname: </strong>{player.nickName}</Item.Description>
+                                <Item.Description><strong>Born: </strong>{player.birthDate}</Item.Description>
+                                <Item.Description><strong>Birth Location: </strong>{player.birthCity} {player.birthStateProvince}, {player.birthCountry}</Item.Description>
+                                <Item.Description><strong>Draft Year: </strong>{player.draftYear} </Item.Description>
+                                <Item.Description><strong>Debut: </strong>{player.mlbDebutDate} </Item.Description>
 
-                                </Item.Content>
-                            </Item>
-                            <Stats 
-                                position={position} 
-                                stat={stat} 
-                                recentYear={recentYear} 
-                                aggStatInfo={aggStatInfo}
-                            />
-                        </Grid.Column>
-                    </Grid>
-                    <CareerStats splits={this.state.splits} position={position}/>
-                </Segment>
-            </div>            
+                            </Item.Content>
+                        </Item>
+                        <Stats 
+                            position={position} 
+                            stat={stat} 
+                            recentYear={recentYear} 
+                            aggStatInfo={aggStatInfo}
+                        />
+                    </Grid.Column>
+                </Grid>
+                <CareerStats splits={this.state.splits} position={position}/>
+            </Segment>
         );
     };
 };

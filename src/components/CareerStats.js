@@ -102,6 +102,7 @@ class CareerStats extends React.Component {
         }
         else {
             const tableRow = splits.map((obj) => {
+                console.log(obj);
                 let key = obj.hasOwnProperty('team') ? obj.season + obj.team.name : obj.season;
                 let teamName = obj.hasOwnProperty('team') ? obj.team.name : 'Multiple teams';
                 let league = obj.hasOwnProperty('league') ? obj.league.name : '-';
