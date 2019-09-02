@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a47a776fdacf9308293f304c599b0fb1",
+    "revision": "2e84da36d4f6b48e3f1d0e32bb1addaa",
     "url": "/MLBRoster/index.html"
   },
   {
-    "revision": "747d5f08a22e48547f3b",
+    "revision": "8fcdd8425bce326017cf",
     "url": "/MLBRoster/static/css/main.58053855.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/MLBRoster/static/js/2.ac04e71c.chunk.js"
   },
   {
-    "revision": "747d5f08a22e48547f3b",
-    "url": "/MLBRoster/static/js/main.8346ebb5.chunk.js"
+    "revision": "8fcdd8425bce326017cf",
+    "url": "/MLBRoster/static/js/main.0bebf5ab.chunk.js"
   },
   {
     "revision": "d06b519f6bc9b95c64bc",

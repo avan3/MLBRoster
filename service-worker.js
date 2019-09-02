@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/MLBRoster/precache-manifest.bca9174bcad6dd8b08213da71f7a0f27.js"
+  "/MLBRoster/precache-manifest.c92e8c1388099e83d4267fe88544a12c.js"
 );
 
 self.addEventListener('message', (event) => {
