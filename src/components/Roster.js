@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { listRoster } from '../actions';
+import { listRoster, changeActive } from '../actions';
 import { Table, Image, Container } from 'semantic-ui-react'; 
+import MLBMenu from './Menu';
 import './Roster.css';
 
 class Roster extends React.Component {
@@ -20,6 +21,7 @@ class Roster extends React.Component {
 
     goToPlayerDetails = (playerId) => {
         localStorage.setItem("selectedPlayer", playerId);
+        this.props.changeActive('players');
         this.props.history.push('/player');
     };
 
@@ -30,7 +32,6 @@ class Roster extends React.Component {
     };
 
     render() {
-        // TODO: group positions by pitcher, catchers, infield, outfield 
         const players = this.props.roster.map(({ person }) => {
             return (
                 <Table.Row key={person.id} onClick = {() => this.goToPlayerDetails(person.id)}>
@@ -52,27 +53,29 @@ class Roster extends React.Component {
             );
         });
         return (
-            <Container>
-                <Table celled inverted striped unstackable selectable>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell colSpan={6}>Active Players</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>
-                        <Table.Row>
-                            <Table.Cell>#</Table.Cell>
-                            <Table.Cell>Name</Table.Cell>
-                            <Table.Cell>B/T</Table.Cell>
-                            <Table.Cell>Ht</Table.Cell>
-                            <Table.Cell>Wt</Table.Cell>
-                            <Table.Cell>DOB</Table.Cell>
-                        </Table.Row>
-                        {players}
-                    </Table.Body>
-                </Table>
-            </Container>
-            
+            <div>
+                <MLBMenu/>
+                <Container>
+                    <Table celled inverted striped unstackable selectable>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell colSpan={6}>Active Players</Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>
+                            <Table.Row>
+                                <Table.Cell>#</Table.Cell>
+                                <Table.Cell>Name</Table.Cell>
+                                <Table.Cell>B/T</Table.Cell>
+                                <Table.Cell>Ht</Table.Cell>
+                                <Table.Cell>Wt</Table.Cell>
+                                <Table.Cell>DOB</Table.Cell>
+                            </Table.Row>
+                            {players}
+                        </Table.Body>
+                    </Table>
+                </Container>
+            </div>
         );
     };
 };
@@ -82,5 +85,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    listRoster: listRoster
+    listRoster: listRoster,
+    changeActive: changeActive
 }) (withRouter(Roster));

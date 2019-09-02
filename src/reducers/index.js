@@ -21,8 +21,16 @@ const listPlayerReducer = (player={}, action) => {
     return player;
 };
 
+const changeActiveReducer = (active="teams", action) => {
+    if (action.type === "CHANGE_ACTIVE") {
+        return action.payload;
+    }
+    return active;
+};
+
 export default combineReducers({
     teams: listTeamReducer,
     roster: listRosterReducer,
-    player: listPlayerReducer
+    player: listPlayerReducer,
+    activeItem: changeActiveReducer
 });
