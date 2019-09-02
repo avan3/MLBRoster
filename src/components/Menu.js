@@ -11,7 +11,7 @@ class MLBMenu extends React.Component {
     handleItemClick = (e, { name }) => this.props.changeActive(name);
 
     render() {
-        const { activeItem } = this.props;
+        const { activeItem, roster, player } = this.props;
         return (
             <Segment inverted className="headerMenu">
                 <Menu size="large" inverted pointing secondary stackable>
@@ -32,16 +32,20 @@ class MLBMenu extends React.Component {
                         active={activeItem === 'teams'}
                         onClick={this.handleItemClick}
                     />
-                    <Menu.Item as={Link} to="/roster"
-                        name='roster'
-                        active={activeItem === 'roster'}
-                        onClick={this.handleItemClick}
-                    />
-                    <Menu.Item as={Link} to="/player"
-                        name='players'
-                        active={activeItem === 'players'}
-                        onClick={this.handleItemClick}
-                    />
+                    {roster.length !== 0 ? (
+                        <Menu.Item as={Link} to="/roster"
+                            name='roster'
+                            active={activeItem === 'roster'}
+                            onClick={this.handleItemClick}
+                        /> 
+                    ) : null }
+                    {Object.keys(player).length !== 0 ? (
+                        <Menu.Item as={Link} to="/player"
+                            name='players'
+                            active={activeItem === 'players'}
+                            onClick={this.handleItemClick}
+                        />
+                    ) : null }
                     <Menu.Menu position='right'>
                         <Menu.Item>
                             <Input icon='search' placeholder='Search...' />
