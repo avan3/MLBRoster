@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://avan3.github.io/MLBRoster",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.28.0",
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
